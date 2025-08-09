@@ -1,7 +1,7 @@
 
 const countdownEl = document.getElementById('countdown');
 
-const tripStart = new Date(2025, 7, 3); // 3 August 2025
+const tripStart = new Date(2026, 7, 3); // 3 August 2026
 const today = new Date();
 
 // Milliseconds in one day
