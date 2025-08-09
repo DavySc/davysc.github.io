@@ -12,6 +12,11 @@ const daysLeft: number = Math.ceil((tripStart.getTime() - today.getTime()) / msP
 
 // Update the countdown text, if the element exists
 if (countdownEl) {
-    daysLeft == 69 ? countdownEl.textContent = 'Nog NICE nachtjes slapen tot vakantie' :
-  countdownEl.textContent = `Nog ${daysLeft} nachtjes slapen tot vakantie!`;
+  if (daysLeft < 1) {
+    countdownEl.textContent = 'Het is vakantie!';
+  } else if (daysLeft === 69) {
+    countdownEl.textContent = 'Nog NICE nachtjes slapen tot vakantie';
+  } else {
+    countdownEl.textContent = `Nog ${daysLeft} nachtjes slapen tot vakantie!`;
+  }
 }
