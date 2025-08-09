@@ -1,5 +1,5 @@
 var countdownEl = document.getElementById('countdown');
-var tripStart = new Date(2025, 7, 3); // 3 August 2025
+var tripStart = new Date(2026, 7, 3); // 3 August 2026
 var today = new Date();
 // Milliseconds in one day
 var msPerDay = 24 * 60 * 60 * 1000;
@@ -7,5 +7,6 @@ var msPerDay = 24 * 60 * 60 * 1000;
 var daysLeft = Math.ceil((tripStart.getTime() - today.getTime()) / msPerDay);
 // Update the countdown text, if the element exists
 if (countdownEl) {
-    countdownEl.textContent = "Nog ".concat(daysLeft, " nachtjes slapen tot vakantie!");
+    daysLeft == 69 ? countdownEl.textContent = 'Nog NICE nachtjes slapen tot vakantie' :
+        countdownEl.textContent = "Nog ".concat(daysLeft, " nachtjes slapen tot vakantie!");
 }
