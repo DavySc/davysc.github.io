@@ -54,3 +54,71 @@ hr {
 em {
   color: #b36d00;
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #31708e;
+  color: #fff;
+  padding: 1rem 2vw;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 1em;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-menu a:hover {
+  color: #ffe082;
+}
+
+/* Hamburger button (hidden on desktop) */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .navbar-menu {
+    flex-direction: column;
+    background: #31708e;
+    position: absolute;
+    right: 0; top: 64px;
+    width: 200px;
+    display: none;
+  }
+  .navbar-menu.open {
+    display: flex;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+}
