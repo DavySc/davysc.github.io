@@ -1,10 +1,12 @@
-var countdownEl = document.getElementById('countdown');
-var tripStart = new Date(2026, 7, 3); // 3 August 2026
-var today = new Date();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const countdownEl = document.getElementById('countdown');
+const tripStart = new Date(2026, 7, 3); // 3 August 2026
+const today = new Date();
 // Milliseconds in one day
-var msPerDay = 24 * 60 * 60 * 1000;
+const msPerDay = 24 * 60 * 60 * 1000;
 // Calculate remaining days until trip starts
-var daysLeft = Math.ceil((tripStart.getTime() - today.getTime()) / msPerDay);
+const daysLeft = Math.ceil((tripStart.getTime() - today.getTime()) / msPerDay);
 // Update the countdown text, if the element exists
 if (countdownEl) {
     if (daysLeft < 1) {
@@ -14,6 +16,7 @@ if (countdownEl) {
         countdownEl.textContent = 'Nog NICE nachtjes slapen tot vakantie';
     }
     else {
-        countdownEl.textContent = "Nog ".concat(daysLeft, " nachtjes slapen tot vakantie!");
+        countdownEl.textContent = `Nog ${daysLeft} nachtjes slapen tot vakantie!`;
     }
 }
+//# sourceMappingURL=countdown.js.map

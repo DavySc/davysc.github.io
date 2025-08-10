@@ -1,3 +1,5 @@
+*.map
+*.d.*
 # Logs
 logs
 *.log
