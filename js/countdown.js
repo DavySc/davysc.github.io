@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const countdownEl = document.getElementById('countdown');
 const tripStart = new Date(2026, 7, 3); // 3 August 2026
 const today = new Date();
@@ -19,4 +17,3 @@ if (countdownEl) {
         countdownEl.textContent = `Nog ${daysLeft} nachtjes slapen tot vakantie!`;
     }
 }
-//# sourceMappingURL=countdown.js.map
