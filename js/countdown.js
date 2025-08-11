@@ -1,5 +1,5 @@
 let countdownEl = document.getElementById('countdown');
-let tripStart = new Date(2026, 8, 3); // 3 August 2026
+let tripStart = new Date(2026, 7, 3); // 3 August 2026
 let today = new Date();
 // Milliseconds in one day
 const msPerDay = 24 * 60 * 60 * 1000;
