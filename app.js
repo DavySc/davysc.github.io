@@ -1,5 +1,6 @@
-import { FFmpeg } from 'https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js';
-import { fetchFile, toBlobURL } from 'https://unpkg.com/@ffmpeg/util@0.12.1/dist/esm/index.js';
+// Access the globals loaded via <script> tags
+const { FFmpeg } = FFmpegWASM;
+const { fetchFile, toBlobURL } = FFmpegUtil;
 
 const ffmpeg = new FFmpeg();
 const statusElem = document.getElementById('status');
@@ -23,6 +24,7 @@ const log = (msg, type = 'text') => {
 
 // --- 1. Initialize WASM ---
 const loadFFmpeg = async () => {
+    // We point to the specific version to ensure compatibility
     const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd';
     
     ffmpeg.on('log', ({ message }) => log(message));
@@ -36,6 +38,7 @@ const loadFFmpeg = async () => {
         statusElem.classList.remove('busy');
     } catch (e) {
         log(`CRITICAL ERROR: ${e.message}`, 'error');
+        console.error(e);
         statusElem.innerText = "[ ERROR ]";
     }
 };
@@ -61,7 +64,7 @@ const handleFile = (file) => {
 
 // --- 3. Core Functions ---
 
-// A. Audio Extraction (Direct Stream Copy)
+// A. Audio Extraction
 btnAudio.addEventListener('click', async () => {
     if (!currentFile) return;
     setBusy(true);
@@ -82,7 +85,7 @@ btnAudio.addEventListener('click', async () => {
     setBusy(false);
 });
 
-// B. GIF Generation (Palette Gen + Apply)
+// B. GIF Generation
 btnGif.addEventListener('click', async () => {
     if (!currentFile) return;
     setBusy(true);
@@ -111,7 +114,6 @@ btnGif.addEventListener('click', async () => {
 
     const data = await ffmpeg.readFile(outputName);
     
-    // Display the image immediately
     const url = URL.createObjectURL(new Blob([data.buffer], { type: 'image/gif' }));
     resultArea.innerHTML = `<img src="${url}" alt="GIF Result" /><br><br>`;
     createDownloadLink(data, 'image/gif', 'animation.gif', false);
