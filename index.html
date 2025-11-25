@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <script src="coi-serviceworker.js"></script>
+
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+    <script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FFMPEG // WASM_CORE</title>
     <style>
@@ -10,7 +15,7 @@
             --bg: #0d0d0d;
             --term-bg: #1a1a1a;
             --text: #e0e0e0;
-            --accent: #00ff41; /* Terminal Green */
+            --accent: #00ff41; 
             --warn: #ffb000;
             --border: 1px solid #333;
         }
@@ -135,7 +140,7 @@
     <div class="result" id="result-area"></div>
 </div>
 
-<script type="module" src="./app.js"></script>
+<script src="./app.js"></script>
 
 </body>
 </html>
